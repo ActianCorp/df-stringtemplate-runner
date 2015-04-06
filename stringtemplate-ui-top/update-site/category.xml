@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="com.actian.ilabs.dataflow.stringtemplate.ui.feature">
+      <category name="actiandataflow"/>
+   </feature>
+   <category-def name="actiandataflow" label="StringTemplate Component">
+      <description>
+         Actian ILabs StringTemplate Component
+      </description>
+   </category-def>
+</site>
