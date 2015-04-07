@@ -1,4 +1,4 @@
-# stringtemplate
+# df-stringtemplate-runner
 
 The StringTemplate Runner is an operator for Actian DataFlow for running [StringTemplate](http://www.stringtemplate.org/) template groups to generate text from data in the dataflow pipeline. 
 
