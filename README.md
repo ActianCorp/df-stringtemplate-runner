@@ -26,5 +26,7 @@ The build generates a JAR file in df-stringtemplate-runner/stringtemplate-op/tar
 The build also produces a ZIP file which can be used as an archive file with the KNIME 'Help/Install New Software...' dialog.
 The ZIP file can be found in df-stringtemplate-runner/stringtemplate-ui-top/update-site/target and is called com.actian.ilabs.dataflow.stringtemplate.ui.update-0.0.1-SNAPSHOT.zip
 
+The file examples/KNIME/StringTemplate_Runner_Example.zip contains a KNIME workflow that can be imported into KNIME and used to test the plug-in.
+
 
 
