@@ -19,8 +19,8 @@
 <plugin>
     <extension point="org.knime.workbench.repository.categories">
         <category
-                description="StringTemplate"
-                icon="icons/DataRush-16x16.png"
+                description="StringTemplate Runner"
+                icon="icons/actian-16x16.png"
                 level-id="com.actian.ilabs.dataflow.stringtemplate.ui"
                 name="StringTemplate" path="/datarush"/>
     </extension>

@@ -1,6 +1,6 @@
 # df-stringtemplate-runner
 
-The StringTemplate Runner is an operator for Actian DataFlow for running [StringTemplate](http://www.stringtemplate.org/) template groups to generate text from data in the dataflow pipeline. 
+The StringTemplate Runner is an operator for Actian DataFlow for running [StringTemplate](http://www.stringtemplate.org/) template engine to generate text from data in the dataflow pipeline.
 
 ## Configuration
 
@@ -16,6 +16,15 @@ The update site is built using [Apache Maven 3.0.5 or later](http://maven.apache
 To build, run:
 
     mvn clean install
+
+## Using the StringTemplate Runner with the DataFlow Engine
+
+The build generates a JAR file in df-stringtemplate-runner/stringtemplate-op/target called stringtemplate-op-0.0.1-SNAPSHOT.jar which can be included on the classpath when using the DataFlow engine.
+
+## Installing the StringTemplate Runner plug-in in KNIME
+
+The build also produces a ZIP file which can be used as an archive file with the KNIME 'Help/Install New Software...' dialog.
+The ZIP file can be found in df-stringtemplate-runner/stringtemplate-ui-top/update-site/target and is called com.actian.ilabs.dataflow.stringtemplate.ui.update-0.0.1-SNAPSHOT.zip
 
 
 

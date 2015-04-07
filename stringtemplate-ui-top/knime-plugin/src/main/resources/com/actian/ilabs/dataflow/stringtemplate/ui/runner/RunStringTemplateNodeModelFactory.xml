@@ -15,17 +15,17 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<knimeNode icon="./RunStringTemplateNodeIcon.png" type="Manipulator">
+<knimeNode icon="./ST.png" type="Manipulator">
     <name>StringTemplate Runner</name>
     <shortDescription>Node for writing text data using string templates to generate the text.</shortDescription>
     <fullDescription>
-        <intro>Node for writing text data using string templates to generate the text.</intro>
-        <option name="StringTemplateGroup">A string template group definition</option>
+        <intro>Node for writing text data using StringTemplate template engine.</intro>
+        <option name="String Templates">Template definitions used by the StringTemplate engine</option>
     </fullDescription>
 
     <ports>
         <inPort index="0" name="Source records">Source records</inPort>
-        <outPort index="0" name="Generated text">Text generated from the STG and source records</outPort>
+        <outPort index="0" name="Generated text">Text generated from the StringTemplate v4 templates and source records</outPort>
     </ports>
 
 </knimeNode>
