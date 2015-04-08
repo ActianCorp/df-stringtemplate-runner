@@ -218,10 +218,6 @@ public class RunStringTemplate extends ExecutableOperator implements RecordPipel
 					String typeString = typeMap.containsKey(fields[i].getType()) ? typeMap.get(fields[i].getType()) : "";
 					headerTemplate.addAggr("__metadata.{ name, type }", fields[i].getName(), typeString);
 				}
-
-				String result = headerTemplate.render();
-				resultField.set(result);
-				recordOutput.push();
 			}
 
 			ST footerTemplate = group.getInstanceOf("/FOOTER");
@@ -232,10 +228,21 @@ public class RunStringTemplate extends ExecutableOperator implements RecordPipel
 				}
 			}
 
+            long recordCount = 0;
+
 			while(recordInput.stepNext()) {
 				ST recordTemplate = group.getInstanceOf("/RECORD");
 				if (recordTemplate == null)
 					continue;
+
+                recordCount++;
+
+                // Only output the results of the header template if there are records in this partition
+                if (headerTemplate != null && recordCount == 1) {
+                    String result = headerTemplate.render();
+                    resultField.set(result);
+                    recordOutput.push();
+                }
 
 				ArrayList<String> valueList = new ArrayList<String>(64);
 				ArrayList<String> typeList = new ArrayList<String>(64);
@@ -257,7 +264,7 @@ public class RunStringTemplate extends ExecutableOperator implements RecordPipel
 				recordOutput.push();
 			}
 
-			if (footerTemplate != null /* && (context.getPartitionInfo().getPartitionID() == context.getPartitionInfo().getPartitionCount() - 1) */) {
+			if (footerTemplate != null && recordCount > 0) {
 					String result = footerTemplate.render();
 					resultField.set(result);
 					recordOutput.push();
@@ -272,17 +279,37 @@ public class RunStringTemplate extends ExecutableOperator implements RecordPipel
 	
 	public static void main(String[] args) {
 		LogicalGraph graph = LogicalGraphFactory.newLogicalGraph();
-		ReadDelimitedText reader = graph.add(new ReadDelimitedText("/Users/paul/input.txt"));
+
+        // Use weather alert data from NOAA as the source
+		ReadDelimitedText reader = graph.add(new ReadDelimitedText("http://www.ncdc.noaa.gov/swdiws/csv/warn/id=533623"));
 		reader.setHeader(true);
 		RunStringTemplate runner = graph.add(new RunStringTemplate());
 		WriteDelimitedText writer = graph.add(new WriteDelimitedText());
-//		runner.setStg("RECORD(__data, __values, __types) ::= \"<__data:{it|<it.name>, <it.type>, <it.value><\\n>}>\"");
+
+        String templateGroup = ""
+                + "HEADER(__metadata) ::=<<\n"
+                + "<! Generate a comma separated list of input field names !>\n"
+                + "<trunc(__metadata):{it|<it.name>,}>\n"
+                + "<last(__metadata).name>\n"
+                + ">>\n"
+                + "\n"
+                + "FOOTER(__metadata) ::=<<\n"
+                + "<! Generate a line of text as the footer !>\n"
+                + "\"This is a footer record\"\n"
+                + ">>\n"
+                + "\n"
+                + "RECORD(__data, __types, __values) ::= <<\n"
+                + "\n"
+                + "<! Generate a record with the value of input field 'field0' !>\n"
+                + "<__values.field0>\n"
+                + ">>\n";
+
 		runner.setStg("RECORD(__data, __values, __types) ::= \"<__values><\\n>\"");
 		writer.setFieldEndDelimiter("]]");
 		writer.setFieldStartDelimiter("[[");
 		writer.setFieldDelimiter("|");
 		writer.setHeader(false);
-		writer.setTarget("/Users/paul/output.txt");
+		writer.setTarget("stdout:");
 		writer.setMode(OVERWRITE);
 		graph.connect(reader.getOutput(), runner.getInput());
 		graph.connect(runner.getOutput(), writer.getInput());
