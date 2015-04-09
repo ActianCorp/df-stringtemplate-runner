@@ -64,7 +64,16 @@
                 <version>${tycho.version}</version>
                 <configuration>
                     <includeAllDependencies>false</includeAllDependencies>
+                    <compress>false</compress>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>archive-repository</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
