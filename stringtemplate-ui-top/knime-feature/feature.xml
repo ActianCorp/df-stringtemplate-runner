@@ -16,9 +16,9 @@
 -->
 <feature
         id="com.actian.ilabs.dataflow.stringtemplate.ui.feature"
-        label="StringTemplate Component"
+        label="Actian ILabs StringTemplate Component"
         version="0.0.1.qualifier"
-        provider-name="Actian">
+        provider-name="Actian Corporation">
 
     <description>This is the StringTemplate Component feature.</description>
 

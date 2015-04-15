@@ -3,7 +3,7 @@
    <feature id="com.actian.ilabs.dataflow.stringtemplate.ui.feature">
       <category name="actiandataflow"/>
    </feature>
-   <category-def name="actiandataflow" label="StringTemplate Component">
+   <category-def name="actiandataflow" label="Actian ILabs StringTemplate Component">
       <description>
          Actian ILabs StringTemplate Component
       </description>

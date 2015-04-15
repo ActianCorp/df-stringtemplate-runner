@@ -4,7 +4,7 @@ Bundle-Name: Actian ILabs StringTemplate Runner plug-in
 Bundle-SymbolicName: com.actian.ilabs.dataflow.stringtemplate.ui.plugin;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.actian.ilabs.dataflow.stringtemplate.ui.Activator
-Bundle-Vendor: Actian
+Bundle-Vendor: Actian Corporation
 Eclipse-RegisterBuddy: com.pervasive.datarush.core.runtime
 Require-Bundle: 
  org.eclipse.osgi,
