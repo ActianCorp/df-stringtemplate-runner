@@ -304,7 +304,7 @@ public class RunStringTemplate extends ExecutableOperator implements RecordPipel
                 + "<__values.field0>\n"
                 + ">>\n";
 
-		runner.setStg("RECORD(__data, __values, __types) ::= \"<__values><\\n>\"");
+		runner.setStg(templateGroup);
 		writer.setFieldEndDelimiter("]]");
 		writer.setFieldStartDelimiter("[[");
 		writer.setFieldDelimiter("|");
