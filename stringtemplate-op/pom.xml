@@ -22,7 +22,14 @@
     <groupId>com.actian.ilabs.dataflow</groupId>
     <artifactId>stringtemplate-op</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+
+    <parent>
+        <groupId>com.actian.ilabs.dataflow</groupId>
+        <artifactId>stringtemplate</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
     <dependencies>
         <dependency>
             <groupId>org.antlr</groupId>

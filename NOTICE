@@ -1,0 +1,9 @@
+This product includes software developed by Actian Corporation (http://www.actian.com/).
+
+In addition, this product includes the following software:
+
+StringTemplate v4 (http://www.stringtemplate.org/) a Java template engine for generating source code.   It is licensed
+under The BSD License.
+
+StringTemplate includes the runtime for ANTLR v3.5 (http://www.antlr.org).   ANTLR is a parser generator tool.  It too
+is licensed under The BSD License.

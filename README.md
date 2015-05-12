@@ -17,6 +17,12 @@ To build, run:
 
     mvn clean install
 
+You can update the version number by running
+
+    mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=version
+    
+where version is of the form x.y.z or x.y.z-SNAPSHOT.
+
 ## Using the StringTemplate Runner with the DataFlow Engine
 
 The build generates a JAR file in df-stringtemplate-runner/stringtemplate-op/target called stringtemplate-op-0.0.1-SNAPSHOT.jar which can be included on the classpath when using the DataFlow engine.
@@ -24,9 +30,15 @@ The build generates a JAR file in df-stringtemplate-runner/stringtemplate-op/tar
 ## Installing the StringTemplate Runner plug-in in KNIME
 
 The build also produces a ZIP file which can be used as an archive file with the KNIME 'Help/Install New Software...' dialog.
-The ZIP file can be found in df-stringtemplate-runner/stringtemplate-ui-top/update-site/target and is called com.actian.ilabs.dataflow.stringtemplate.ui.update-0.0.1-SNAPSHOT.zip
+The ZIP file can be found in the target directory under
+[df-jsonpath-runner/stringtemplate-ui-top/update-site](https://github.com/ActianCorp/df-stringtemplate-runner/tree/master/stringtemplate-ui-top/update-site) 
+and with a name like 
 
-The file examples/KNIME/StringTemplate_Runner_Example.zip contains a KNIME workflow that can be imported into KNIME and used to test the plug-in.
+
+    com.actian.ilabs.dataflow.stringtemplate.ui.update-1.y.z.zip
+
+The file [examples/KNIME/Stringtemplate_Runner_Example.zip](https://github.com/ActianCorp/df-stringtemplate-runner/raw/master/examples/KNIME/StringTemplate_Example.zip) 
+contains a KNIME workflow that can be imported into KNIME and used to test the plug-in.
 
 
 

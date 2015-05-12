@@ -20,12 +20,12 @@
     <groupId>com.actian.ilabs.dataflow</groupId>
     <artifactId>com.actian.ilabs.dataflow.stringtemplate.ui.plugin</artifactId>
     <packaging>eclipse-plugin</packaging>
-    <version>0.0.1-SNAPSHOT</version>
 
     <parent>
         <groupId>com.actian.ilabs.dataflow</groupId>
         <artifactId>stringtemplate-ui-top</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <build>

@@ -21,7 +21,6 @@ import static com.pervasive.datarush.io.WriteMode.OVERWRITE;
 import static com.pervasive.datarush.types.TokenTypeConstant.*;
 import static com.pervasive.datarush.types.TypeUtil.mergeTypes;
 
-import java.sql.*;
 import java.util.*;
 
 import javax.xml.bind.DatatypeConverter;
@@ -31,7 +30,6 @@ import com.pervasive.datarush.encoding.text.TimeFormatter;
 import com.pervasive.datarush.encoding.text.TimestampFormatter;
 import com.pervasive.datarush.graphs.LogicalGraph;
 import com.pervasive.datarush.graphs.LogicalGraphFactory;
-import com.pervasive.datarush.io.WriteMode;
 import com.pervasive.datarush.operators.*;
 import com.pervasive.datarush.operators.io.textfile.FieldDelimiterSettings;
 import com.pervasive.datarush.operators.io.textfile.ReadDelimitedText;
